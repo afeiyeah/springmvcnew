@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+//1.逐个提交参数 {"username","abc"}
+//2.表单序列化 $("#f1").serialize()
+//3.返回值：dataType："json"
+	$(function(){
+		$("#select").click(function(){
+			$.ajax({
+				type:"post",
+				url:"testAjax.action",
+				data:$("#f1").serialize(),
+				dataType:"json",
+				success:function(msg){
+					console.log(msg);
+					
+				}
+			});
+			
+		});
+		
+	})
+
+</script>
+</head>
+<body>
+	<form id="f1" >
+		用户名：<input type="text" name="uname"><br/>
+		邮箱：<input type="text" name="email"><br/>
+		体重：<input type="text" name="weight"><br/>
+	</form>
+
+	<button type="button" id="select">查询</button>
+
+</body>
+</html>
